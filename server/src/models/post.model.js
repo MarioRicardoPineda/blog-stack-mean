@@ -3,11 +3,13 @@ const { Schema, model } = require('mongoose')
 const postSchema = new Schema(
   {
     autor: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'Usuario',
       required: true
     },
     categoria: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'Categoria',
       required: true 
     },
     titulo: {
@@ -27,9 +29,13 @@ const postSchema = new Schema(
       type: String,
       required: false
     },
-    etiquetas: []
+    etiquetas: [
+      {
+        type: String
+      }
+    ]
   },
   { timestamps: { createdAt: true, updatedAt: true } }
 )
 
-module.exports = model('post', postSchema)
+module.exports = model('Post', postSchema)
