@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 
 const color = require('colors')
+const { PORT } = require('./config')
 
 // middlewares
 
@@ -11,4 +12,4 @@ const color = require('colors')
 
 
 
-app.listen( 9000, console.log( `Servidor escuchando en el puerto ${9000}`.yellow ) )
+app.listen( PORT, console.log( `Servidor escuchando en el puerto ${PORT}`.yellow ) )
